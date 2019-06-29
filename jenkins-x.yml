@@ -1,4 +1,8 @@
+buildPack: terraform
+buildPackGitURL: https://github.com/sharepointoscar/jenkins-x-kubernetes
 pipelineConfig:
+  agent:
+    image: sharepointoscar/terraform-buildpack:v4
   env:
   - name: TF_AWS_ACCESS_KEY_ID
     valueFrom:
@@ -20,5 +24,5 @@ pipelineConfig:
           name: sposcar-echo-access_key_id
         - sh: echo ====================================== TF_AWS_SECRET_ACCESS_KEY= ${TF_AWS_SECRET_ACCESS_KEY} ======================================
           name: sposcar-echo-access_key
-        - sh: echo ====================================== EXECUTE TERRAFORM PLAN ======================================
+        - sh: terraform plan
           name: sposcar-terraform-plan
