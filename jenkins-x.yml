@@ -27,9 +27,11 @@ pipelineConfig:
           - command: terraform
             args: ['init']
             name: output-terraform-init
-          - command: terraform
-            args: ['plan']
-            name: output-terraform-plan
+          - command: env
+            name: output-terraform-env            
+          # - command: terraform
+          #   args: ['plan']
+          #   name: output-terraform-plan
           - command: echo ${TF_AWS_ACCESS_KEY_ID}
             name: output-aws-access_key_id
           - command: echo ${TF_AWS_SECRET_ACCESS_KEY}
