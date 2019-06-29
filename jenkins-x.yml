@@ -1,0 +1,22 @@
+pipelineConfig:
+  env:
+  - name: TF_AWS_ACCESS_KEY_ID
+    valueFrom:
+      secretKeyRef:
+        key: AWS_ACCESS_KEY_ID
+        name: aws-creds
+  - name: TF_AWS_SECRET_ACCESS_KEY
+    valueFrom:
+      secretKeyRef:
+        key: AWS_SECRET_ACCESS_KEY
+        name: aws-creds
+  pipelines:
+    overrides:
+    - pipeline: release
+      stage: build
+      type: before
+      steps:
+        - sh: echo ====================================== TF_AWS_ACCESS_KEY_ID= ${TF_AWS_ACCESS_KEY_ID} ======================================
+          name: sposcar-echo-access_key_id
+        - sh: echo ====================================== TF_AWS_SECRET_ACCESS_KEY= ${TF_AWS_SECRET_ACCESS_KEY} ======================================
+          name: sposcar-echo-access_key
