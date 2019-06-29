@@ -17,7 +17,7 @@ pipelineConfig:
   pipelines:
     default:
        stages:
-        - name: build
+        - name: Execute Terraform
           steps: 
             - command: terraform
               args: [plan']
