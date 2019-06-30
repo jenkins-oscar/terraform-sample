@@ -18,7 +18,7 @@ pipelineConfig:
     overrides:
       - pipeline: release
         stage: build
-        type: before
+        type: after
         steps:
           #- sh: echo ====================================== TF_AWS_ACCESS_KEY_ID= ${TF_AWS_ACCESS_KEY_ID} ======================================
           #  name: sposcar-echo-access_key_id
