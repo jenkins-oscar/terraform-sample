@@ -15,17 +15,15 @@ pipelineConfig:
         key: AWS_SECRET_ACCESS_KEY
         name: aws-creds
   pipelines:
-    overrides:
-      - pipeline: release
-        stage: build
-        type: before
-        steps:
-          - command: terraform
-            args: ['init']
-            name: output-terraform-init
-          - command: env
-            name: output-terraform-env            
-          - command: echo ${TF_AWS_ACCESS_KEY_ID}
-            name: output-aws-access_key_id
-          - command: echo ${TF_AWS_SECRET_ACCESS_KEY}
-            name: output-aws-secret_access_key_id
+      pullRequest:
+        build:
+          preSteps:
+            - command: terraform
+              args: ['init']
+              name: output-terraform-init
+            - command: env
+              name: output-terraform-env            
+            - command: echo ${TF_AWS_ACCESS_KEY_ID}
+              name: output-aws-access_key_id
+            - command: echo ${TF_AWS_SECRET_ACCESS_KEY}
+              name: output-aws-secret_access_key_id
