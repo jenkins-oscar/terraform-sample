@@ -2,7 +2,7 @@ buildPack: terraform
 buildPackGitURL: https://github.com/sharepointoscar/jenkins-x-kubernetes
 pipelineConfig:
   agent:
-    image: sharepointoscar/terraform-buildpack:v4
+    image: terraform
   env:
   - name: TF_AWS_ACCESS_KEY_ID
     valueFrom:
@@ -20,18 +20,11 @@ pipelineConfig:
         stage: build
         type: after
         steps:
-          #- sh: echo ====================================== TF_AWS_ACCESS_KEY_ID= ${TF_AWS_ACCESS_KEY_ID} ======================================
-          #  name: sposcar-echo-access_key_id
-          #- sh: echo ====================================== TF_AWS_SECRET_ACCESS_KEY= ${TF_AWS_SECRET_ACCESS_KEY} ======================================
-          #  name: sposcar-echo-access_key
           - command: terraform
             args: ['init']
             name: output-terraform-init
           - command: env
             name: output-terraform-env            
-          # - command: terraform
-          #   args: ['plan']
-          #   name: output-terraform-plan
           - command: echo ${TF_AWS_ACCESS_KEY_ID}
             name: output-aws-access_key_id
           - command: echo ${TF_AWS_SECRET_ACCESS_KEY}
