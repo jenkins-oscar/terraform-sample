@@ -18,7 +18,7 @@ pipelineConfig:
     overrides:
     - pipeline: release
       stage: build
-      type: before
+      type: after
       steps:
         - command: terraform
           args: ['init']
