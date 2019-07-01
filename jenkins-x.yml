@@ -2,7 +2,7 @@ buildPack: terraform
 buildPackGitURL: https://github.com/sharepointoscar/jenkins-x-kubernetes
 pipelineConfig:
   #agent:
-  #  image: sharepointoscar/terraform-buildpack:v4
+  #G  image: sharepointoscar/terraform-buildpack:v4
   env:
   - name: TF_AWS_ACCESS_KEY_ID
     valueFrom:
