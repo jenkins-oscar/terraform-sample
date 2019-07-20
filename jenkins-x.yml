@@ -1,4 +1,4 @@
-#buildPack: terraform
+buildPack: terraform
 buildPackGitURL: https://github.com/sharepointoscar/jenkins-x-classic
 pipelineConfig:
   agent:
