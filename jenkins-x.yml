@@ -2,7 +2,7 @@ buildPack: terraform
 buildPackGitURL: https://github.com/sharepointoscar/jenkins-x-classic
 pipelineConfig:
   agent:
-    image: sharepointoscar/terraform-buildpack:v4
+    image: terraform
   env:
   - name: AWS_ACCESS_KEY_ID
     valueFrom:
