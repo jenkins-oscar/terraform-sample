@@ -4,12 +4,12 @@ pipelineConfig:
   agent:
     image: sharepointoscar/terraform-buildpack:v4
   env:
-  - name: TF_AWS_ACCESS_KEY_ID
+  - name: AWS_ACCESS_KEY_ID
     valueFrom:
       secretKeyRef:
         key: AWS_ACCESS_KEY_ID
         name: aws-creds
-  - name: TF_AWS_SECRET_ACCESS_KEY
+  - name: AWS_SECRET_ACCESS_KEY
     valueFrom:
       secretKeyRef:
         key: AWS_SECRET_ACCESS_KEY
