@@ -2,7 +2,7 @@ buildPack: terraform
 buildPackGitURL: https://github.com/sharepointoscar/jenkins-x-classic
 pipelineConfig:
   agent:
-    image: terraform
+    image: sharepointoscar/terraform-buildpack:v4
   env:
   - name: AWS_ACCESS_KEY_ID
     valueFrom:
@@ -32,3 +32,16 @@ pipelineConfig:
           args: ['destroy','-auto-approve']
           #args: ['apply','-auto-approve']
           name: terraform-apply-booooiii
+  # pipelines:
+  #     pullRequest:
+  #       build:
+  #         preSteps:
+  #           - command: terraform
+  #             args: ['init']
+  #             name: output-terraform-init
+  #           - command: env
+  #             name: output-terraform-env            
+  #           - command: echo ${TF_AWS_ACCESS_KEY_ID}
+  #             name: output-aws-access_key_id
+  #           - command: echo ${TF_AWS_SECRET_ACCESS_KEY}
+  #             name: output-aws-secret_access_key_id
