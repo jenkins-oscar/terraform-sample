@@ -29,7 +29,8 @@ pipelineConfig:
           name: output-aws-secret_access_key_id
         
         - command: terraform
-          args: ['apply','-auto-approve']
+          args: ['destroy','-auto-approve']
+          #args: ['apply','-auto-approve']
           name: terraform-apply-booooiii
   # pipelines:
   #     pullRequest:
