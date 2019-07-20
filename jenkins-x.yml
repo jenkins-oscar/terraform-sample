@@ -27,6 +27,8 @@ pipelineConfig:
           name: output-aws-access_key_id
         - command: echo ${TF_AWS_SECRET_ACCESS_KEY}
           name: output-aws-secret_access_key_id
+        - command: terraform
+          args: ['apply']
   # pipelines:
   #     pullRequest:
   #       build:
