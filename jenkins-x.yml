@@ -1,5 +1,5 @@
 buildPack: terraform
-buildPackGitURL: https://github.com/sharepointoscar/jenkins-x-kubernetes
+buildPackGitURL: https://github.com/sharepointoscar/jenkins-x-classic
 pipelineConfig:
   agent:
     image: sharepointoscar/terraform-buildpack:v4
