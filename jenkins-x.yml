@@ -23,12 +23,11 @@ pipelineConfig:
         - command: terraform
           args: ['init']
           name: output-terraform-init
-        #- command: echo ${AWS_ACCESS_KEY_ID}
-        #  name: output-aws-access_key_id
-        #- command: echo ${AWS_SECRET_ACCESS_KEY}
-        #  name: output-aws-secret_access_key_id
+        - command: echo ${AWS_ACCESS_KEY_ID}
+          name: output-aws-access_key_id
+        - command: echo ${AWS_SECRET_ACCESS_KEY}
+          name: output-aws-secret_access_key_id
         - command: terraform
-          #args: ['apply','-auto-approve']
           args: ['apply','-auto-approve']
           name: release-terraform-apply
   pipelines:
@@ -38,11 +37,10 @@ pipelineConfig:
             - command: terraform
               args: ['init']
               name: pullrequest-terraform-init           
-            #- command: echo ${AWS_ACCESS_KEY_ID}
-            #  name: output-aws-access_key_id
-            #- command: echo ${AWS_SECRET_ACCESS_KEY}
-            #  name: output-aws-secret_access_key_id
+            - command: echo ${AWS_ACCESS_KEY_ID}
+              name: output-aws-access_key_id
+            - command: echo ${AWS_SECRET_ACCESS_KEY}
+              name: output-aws-secret_access_key_id
             - command: terraform
-               #args: ['apply','-auto-approve']
-              args: ['plan']
-              name: pullrequest-terraform-plan
+              args: ['apply','-auto-approve']
+              name: pullrequest-terraform-apply
