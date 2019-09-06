@@ -44,3 +44,4 @@ pipelineConfig:
             - command: terraform
               args: ['apply','-auto-approve']
               name: pullrequest-terraform-apply
+
