@@ -10,6 +10,7 @@ resource "aws_instance" "my-linux-server" {
   tags = {
           group = "Marketing"
     cost-center = "COSTAF"
+   geo-location = "Tijuana B.C. Mexico"
   }
 
 }
