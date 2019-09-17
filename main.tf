@@ -8,7 +8,9 @@ resource "aws_instance" "my-linux-server" {
   instance_type = "t2.micro"
 
   tags = {
-    team = "jenkinsx"
-    event = "SPSENS"
+          group = "Marketing"
+    cost-center = "COSTAF"
+   geo-location = "Tijuana B.C. Mexico"
   }
+
 }
